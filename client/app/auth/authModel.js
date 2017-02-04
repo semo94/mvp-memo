@@ -1,4 +1,4 @@
-angular.module('memo.auth', [])
+angular.module('memos.auth', [])
 
 .controller('AuthController', function ($scope, $location, Auth) {
   $scope.user = {};

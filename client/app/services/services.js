@@ -1,9 +1,9 @@
 angular.module('memos.services', [])
-.factory('Auth', function ($http, $location, $window) {
+.factory('Auth', function ($http, $location) {
 	var signin = function (user) {
 		return $http({
 			method: 'POST',
-			url: '/api/users/signin',
+			url: '/signin',
 			data: user
 		})
 		.then(function (resp) {
@@ -14,11 +14,11 @@ angular.module('memos.services', [])
 	var signup = function (user) {
 		return $http({
 			method: 'POST',
-			url: '/api/users/signup',
+			url: '/signup',
 			data: user
 		})
 		.then(function (resp) {
-			return resp.data.token;
+			return resp.status;
 		});
 	};
 
