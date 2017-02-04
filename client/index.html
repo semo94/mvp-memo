@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app='memo'>
+<head>
+  <meta charset="utf-8" />
+  <title>My Memos</title>
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+</head>
+<body>
+  <h1>My memo</h1>
+  <div class='navigation'>
+    <ul>
+    <li><a href='#signin' class='index'>Sign in</a></li>
+      <li><a href='#signup' class='create'>Sign up</a></li>
+    </ul>
+  </div>
+  <div id='container'></div>
+
+  <div ng-view></div>
+
+  <script src="node_modules/angular/angular.js"></script>
+  <script src="node_modules/angular-route/angular-route.js"></script>
+
+  <script src="signin.js"></script>
+  <script src="signup.js"></script>
+
+</body>
+</html>
