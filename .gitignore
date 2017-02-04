@@ -1,4 +1,5 @@
 node_modules
+client/lib
 database/*.sqlite
 database/sqlite3
 *.DS_Store
