@@ -23,8 +23,8 @@ angular.module('memos', [
     templateUrl: 'app/write/write.html',
     controller: 'WriteCtrl'
   })
-  .otherwise({redirectTo:'/'});
+  .otherwise({redirectTo:'/memos'});
 })
-  // .run(function ($location) {
-  //   $location.path('/signin')
+  // .run(function (RenderCtrl) {
+  //   RenderCtrl.getAll();
   // })

@@ -65,15 +65,20 @@ app.post('/write',function(req,res){
 })
 
 app.get('/memos',function(req,res){
-	Memos.reset().fetch().then(function(memos) {
-		var userMemos=[];
-		for(var i=0;i<memos.models.length;i++){
-			if(req.session.userId===memos.models[i].attributes.user_id){
-				userMemos.push(memos.models[i]);
+	console.log(req.session.userId);
+	if(req.session.userId){
+		Memos.reset().fetch().then(function(memos) {
+			var userMemos=[];
+			for(var i=0;i<memos.models.length;i++){
+				if(req.session.userId===memos.models[i].attributes.user_id){
+					userMemos.push(memos.models[i]);
+				}
 			}
-		}
-		res.status(200).send(userMemos);
-	});
+			res.status(200).send(userMemos);
+		});
+	}else{
+		res.status(200).send('notAuth');
+	}
 })
 
 module.exports = app;
