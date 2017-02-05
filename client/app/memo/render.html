@@ -1,6 +1,12 @@
-<div id='container' ng-controller = "RenderCtrl">
-	<label>Search: <input ng-model="searchText"></label>
-	<div class='memo' ng-repeat = "memo in data.memos | filter:searchText track by $index">
-	<p>{{memo.text}}</p>
+	<div class='navigation'>
+		<ul>
+			<li><a href='#memos' class='index'>Show diary</a></li>
+			<li><a href='#write' class='create'>Write memo</a></li>
+		</ul>
 	</div>
-</div>
+	<div id='container' ng-controller = "RenderCtrl">
+		<label>Search: <input ng-model="searchText"></label>
+		<div class='memo' ng-repeat = "memo in data.memos | filter:searchText track by $index">
+			<p>{{memo.text}}</p>
+		</div>
+	</div>

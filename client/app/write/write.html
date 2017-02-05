@@ -1,7 +1,13 @@
-<div id='container' ng-controller = "WriteCtrl">
-	<form >
-		<textarea class="write" rows="4" cols="50" ng-model = "data.memo">
-		</textarea>
-		<input ng-click = "addMemo()" type='submit' value='write memo'>
-	</form>
-</div>
+	<div class='navigation'>
+		<ul>
+			<li><a href='#memos' class='index'>Show diary</a></li>
+			<li><a href='#write' class='create'>Write memo</a></li>
+		</ul>
+	</div>
+	<div id='container' ng-controller = "WriteCtrl">
+		<form >
+			<textarea class="write" rows="4" cols="50" ng-model = "data.memo">
+			</textarea>
+			<input ng-click = "addMemo()" type='submit' value='write memo'>
+		</form>
+	</div>

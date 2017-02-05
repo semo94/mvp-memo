@@ -27,7 +27,6 @@ app.post('/signup', function(req, res) {
 			.then(function(newUser) {
 				req.session.userId = newUser.get('id');
 				req.session.username = newUser.get('username');
-				console.log(req.session);
 				res.status(200).send("user createed successfully!");
 			});
 		}
@@ -65,7 +64,6 @@ app.post('/write',function(req,res){
 })
 
 app.get('/memos',function(req,res){
-	console.log(req.session.userId);
 	if(req.session.userId){
 		Memos.reset().fetch().then(function(memos) {
 			var userMemos=[];

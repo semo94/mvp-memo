@@ -4,7 +4,6 @@ angular.module('memos.render', [])
 	$scope.data = {};
 	Render.getAll()
 	.then(function(resp){
-		console.log(resp);
 		if(resp === "notAuth"){
 			$location.path('/signin');
 		}else{
