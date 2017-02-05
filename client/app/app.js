@@ -15,6 +15,10 @@ angular.module('memos', [
     templateUrl: 'app/auth/signup.html',
     controller: 'AuthController'
   })
+  .when('/signout', {
+    templateUrl: 'app/auth/signin.html',
+    controller: 'AuthController'
+  })
   .when('/memos', {
     templateUrl: 'app/memo/render.html',
     controller: 'RenderCtrl'
