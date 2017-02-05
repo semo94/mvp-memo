@@ -1,6 +1,6 @@
 <div id='container' ng-controller = "RenderCtrl">
 	<label>Search: <input ng-model="searchText"></label>
 	<div class='memo' ng-repeat = "memo in data.memos | filter:searchText track by $index">
-	<p>{{memo}}</p>
+	<p>{{memo.text}}</p>
 	</div>
 </div>

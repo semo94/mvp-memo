@@ -53,7 +53,6 @@ app.post('/signin',function(req,res){
 })
 
 app.post('/write',function(req,res){
-	//console.log(req.body)
 	var memo = req.body.memo;
 	var userId = req.session.userId;
 	Memos.create({
@@ -63,6 +62,18 @@ app.post('/write',function(req,res){
 	.then(function(newMemo){
 		res.status(200).send();
 	})
+})
+
+app.get('/memos',function(req,res){
+	Memos.reset().fetch().then(function(memos) {
+		var userMemos=[];
+		for(var i=0;i<memos.models.length;i++){
+			if(req.session.userId===memos.models[i].attributes.user_id){
+				userMemos.push(memos.models[i]);
+			}
+		}
+		res.status(200).send(userMemos);
+	});
 })
 
 module.exports = app;
