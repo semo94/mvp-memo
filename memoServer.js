@@ -52,4 +52,17 @@ app.post('/signin',function(req,res){
 	});
 })
 
+app.post('/write',function(req,res){
+	//console.log(req.body)
+	var memo = req.body.memo;
+	var userId = req.session.userId;
+	Memos.create({
+		user_id: userId,
+		text: memo
+	})
+	.then(function(newMemo){
+		res.status(200).send();
+	})
+})
+
 module.exports = app;
