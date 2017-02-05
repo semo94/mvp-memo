@@ -5,8 +5,13 @@ angular.module('memos.auth', [])
 
   $scope.signin = function () {
     Auth.signin($scope.user)
-    .then(function() {
-      $location.path('/memos');
+    .then(function(resp) {
+      console.log(resp.data);
+      if(resp.data === 'user signedin successfully!'){
+        $location.path('/memos');        
+      }else{
+        $scope.validate = resp.data;
+      }
     })
     .catch(function (error) {
       console.error(error);
@@ -16,7 +21,6 @@ angular.module('memos.auth', [])
   $scope.signup = function () {
     Auth.signup($scope.user)
     .then(function (resp) {
-      console.log(resp);
       if(resp.data === "this user is already existed"){
         $scope.validate = resp.data;
       }else{

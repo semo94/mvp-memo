@@ -34,4 +34,22 @@ app.post('/signup', function(req, res) {
 	});
 })
 
+app.post('/signin',function(req,res){
+	var username = req.body.username;
+	var password = req.body.password;
+	new User({ username: username }).fetch().then(function(found) {
+		if (found) {
+			if(found.get('password') === password){
+				req.session.userId = found.get('id');
+				req.session.username = found.get('username');
+				res.status(200).send('user signedin successfully!');
+			}else{
+				res.status(200).send('password is not correct');
+			}
+		} else {
+			res.status(200).send("username is not exist");
+		}
+	});
+})
+
 module.exports = app;
