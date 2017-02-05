@@ -13,7 +13,7 @@ angular.module('memos', [
     templateUrl: 'app/auth/signup.html',
     controller: 'AuthController'
   })
-  .otherwise({redirectTo:'/signin'});
+  .otherwise({redirectTo:'/'});
   })
   // .run(function ($location) {
   //   $location.path('/signin')

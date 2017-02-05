@@ -12,13 +12,15 @@ angular.module('memos.services', [])
 	};
 
 	var signup = function (user) {
+		//done console.log(user)
 		return $http({
 			method: 'POST',
 			url: '/signup',
 			data: user
 		})
 		.then(function (resp) {
-			return resp.status;
+			console.log(resp);
+			return resp;
 		});
 	};
 
