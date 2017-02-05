@@ -32,4 +32,19 @@ angular.module('memos.services', [])
 		signup: signup,
 		signout: signout
 	};
-});
+})
+.factory('Render',function($http, $location){
+	var getAll = function(){
+		return $http({
+			method:'GET',
+			url:'/memos'
+		})
+		.then(function(resp){
+			return resp.data;
+		})
+	}
+
+	return {
+		getAll: getAll
+	};
+})

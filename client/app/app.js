@@ -1,6 +1,7 @@
 angular.module('memos', [
   'memos.services',
   'memos.auth',
+  'memos.render',
   'ngRoute'
   ])
 .config(function ($routeProvider) {
@@ -13,8 +14,12 @@ angular.module('memos', [
     templateUrl: 'app/auth/signup.html',
     controller: 'AuthController'
   })
-  .otherwise({redirectTo:'/'});
+  .when('/memos', {
+    templateUrl: 'app/memo/render.html',
+    controller: 'RenderCtrl'
   })
+  .otherwise({redirectTo:'/'});
+})
   // .run(function ($location) {
   //   $location.path('/signin')
   // })
