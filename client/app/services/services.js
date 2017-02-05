@@ -48,3 +48,18 @@ angular.module('memos.services', [])
 		getAll: getAll
 	};
 })
+.factory('Write',function($http, $location){
+	var addMemo = function(memo){
+		return $http({
+			method:'POST',
+			url:'/write',
+			data: memo
+		})
+		.then(function(resp){
+			return resp;
+		})
+	}
+	return {
+		addMemo: addMemo
+	};
+})
