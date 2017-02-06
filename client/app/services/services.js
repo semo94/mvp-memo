@@ -22,15 +22,21 @@ angular.module('memos.services', [])
 		});
 	};
 
-	var signout = function () {
-		$location.path('/signin');
+	var signOut = function () {
+		return $http({
+			method: 'GET',
+			url: '/signout'
+		})
+		.then(function(resp){
+			return resp
+		});
 	};
 
 
 	return {
 		signin: signin,
 		signup: signup,
-		signout: signout
+		signOut: signOut
 	};
 })
 .factory('Render',function($http, $location){

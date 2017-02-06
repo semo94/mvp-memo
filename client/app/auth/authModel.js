@@ -31,4 +31,14 @@ angular.module('memos.auth', [])
       console.error(error);
     });
   };
+
+  $scope.signOut = function () {
+    Auth.signOut()
+    .then(function(resp){
+      $location.path('/signin');
+    })
+    .catch(function (error) {
+      console.error(error);
+    });
+  };
 });

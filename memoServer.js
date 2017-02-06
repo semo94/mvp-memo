@@ -79,4 +79,9 @@ app.get('/memos',function(req,res){
 	}
 })
 
+app.get('/signout', function(req,res){
+	req.session.destroy();
+	res.status(200).send();
+})
+
 module.exports = app;
